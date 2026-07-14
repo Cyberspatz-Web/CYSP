@@ -7,14 +7,24 @@ import { Button } from "../components/ui/Button";
 import { ArticleThumb } from "../components/ui/ArticleThumb";
 import { StatusBadge } from "../components/ui/StatusBadge";
 import { AmbientGlow } from "../components/ui/AmbientGlow";
-import { ARTICLES, formatArticleDate, type ArticleCategory } from "../data/resources";
+import {
+  ARTICLES,
+  formatArticleDate,
+  type ArticleCategory,
+} from "../data/resources";
 import { cn } from "../lib/utils";
 
-const FILTERS: (ArticleCategory | "All")[] = ["All", "Security", "Engineering", "Company"];
+const FILTERS: (ArticleCategory | "All")[] = [
+  "All",
+  "Security",
+  "Engineering",
+  "Company",
+];
 
 export function ResourcesOverview() {
   const [filter, setFilter] = useState<(typeof FILTERS)[number]>("All");
-  const articles = filter === "All" ? ARTICLES : ARTICLES.filter((a) => a.category === filter);
+  const articles =
+    filter === "All" ? ARTICLES : ARTICLES.filter((a) => a.category === filter);
 
   return (
     <>
@@ -24,23 +34,30 @@ export function ResourcesOverview() {
         path="/resources"
       />
       <section className="pt-40 pb-16 md:pt-48 md:pb-20 relative overflow-hidden">
-        <AmbientGlow tone="mixed" className="w-[480px] h-[480px] -top-32 left-1/3 opacity-70" />
+        <AmbientGlow
+          tone="mixed"
+          className="w-[480px] h-[480px] -top-32 left-1/3 opacity-70"
+        />
         <Container className="relative">
           <StatusBadge label={`${ARTICLES.length} articles`} />
           <h1 className="mt-8 text-display-lg font-display font-extrabold max-w-[18ch]">
             Notes from the engagements.
           </h1>
           <p className="mt-6 text-lg text-paper-dim max-w-[54ch] leading-relaxed">
-            Patterns, mistakes, and decisions we see repeatedly across
-            security assessments and engineering work — written for the
-            people who have to act on them.
+            Patterns, mistakes, and decisions we see repeatedly across security
+            assessments and engineering work — written for the people who have
+            to act on them.
           </p>
         </Container>
       </section>
 
       <section className="hairline">
         <Container>
-          <div className="flex flex-wrap gap-2 py-8" role="tablist" aria-label="Filter articles by category">
+          <div
+            className="flex flex-wrap gap-2 py-8"
+            role="tablist"
+            aria-label="Filter articles by category"
+          >
             {FILTERS.map((f) => (
               <button
                 key={f}
@@ -51,7 +68,7 @@ export function ResourcesOverview() {
                   "font-mono text-xs uppercase tracking-[0.1em] px-4 py-2 border transition-colors",
                   filter === f
                     ? "border-signal text-signal bg-signal-soft/30"
-                    : "border-border-strong text-steel hover:text-paper-dim hover:border-steel"
+                    : "border-border-strong text-steel hover:text-paper-dim hover:border-steel",
                 )}
               >
                 {f}
@@ -73,7 +90,12 @@ export function ResourcesOverview() {
                 transition={{ duration: 0.5, delay: (i % 3) * 0.06 }}
               >
                 <Link to={`/resources/${article.slug}`} className="group block">
-                  <ArticleThumb icon={article.icon} index={i} />
+                  {/* <ArticleThumb icon={article.icon} index={i} /> */}
+                  <ArticleThumb
+                    icon={article.icon}
+                    thumbnail={article.thumbnail}
+                    index={i}
+                  />
                   <div className="pt-5">
                     <div className="flex items-center gap-3 text-xs text-steel font-mono">
                       <span>{formatArticleDate(article.date)}</span>
@@ -109,7 +131,10 @@ export function ResourcesOverview() {
       </section>
 
       <section className="hairline py-section relative overflow-hidden">
-        <AmbientGlow tone="amber" className="w-[420px] h-[420px] -bottom-32 -right-24 opacity-60" />
+        <AmbientGlow
+          tone="amber"
+          className="w-[420px] h-[420px] -bottom-32 -right-24 opacity-60"
+        />
         <Container className="relative">
           <div className="border border-border-strong p-10 md:p-14">
             <p className="label-mono mb-4">Write for us</p>
@@ -117,11 +142,11 @@ export function ResourcesOverview() {
               Have a writeup worth sharing?
             </h2>
             <p className="mt-5 text-paper-dim max-w-[58ch] leading-relaxed">
-              We publish original articles, CTF writeups, and research from
-              the security and engineering community — not just our own
-              team. If you've got something worth sharing, send it our way.
-              Every submission is reviewed before anything is posted; we'll
-              follow up either way.
+              We publish original articles, CTF writeups, and research from the
+              security and engineering community — not just our own team. If
+              you've got something worth sharing, send it our way. Every
+              submission is reviewed before anything is posted; we'll follow up
+              either way.
             </p>
             <ul className="mt-6 flex flex-col gap-2 text-sm text-paper-dim">
               <li className="flex items-start gap-3">
@@ -130,8 +155,9 @@ export function ResourcesOverview() {
               </li>
               <li className="flex items-start gap-3">
                 <span className="mt-2 h-1 w-1 rounded-full bg-signal shrink-0" />
-                Ethical hacking and cybersecurity research: CTF walkthroughs, tool
-                breakdowns, methodology, engineering-and-security crossover topics.
+                Ethical hacking and cybersecurity research: CTF walkthroughs,
+                tool breakdowns, methodology, engineering-and-security crossover
+                topics.
               </li>
               <li className="flex items-start gap-3">
                 <span className="mt-2 h-1 w-1 rounded-full bg-signal shrink-0" />

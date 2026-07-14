@@ -26,6 +26,7 @@ export const ARTICLES: Article[] = [
     tags: ["Threat Modeling", "Process"],
     date: "2026-06-02",
     readTime: "5 min",
+    thumbnail: "/resources/threat_modelling_in_sprint_planning.png",
     icon: Target,
     content: [
       "Threat modeling usually shows up at the wrong time — after the architecture is settled, when a security review is scheduled because launch is close. By then, the findings are mostly cosmetic. The trust boundaries were already drawn weeks earlier, in a design doc nobody flagged as a security decision.",
@@ -43,6 +44,7 @@ export const ARTICLES: Article[] = [
     tags: ["Secure Code Review", "Engineering Culture"],
     date: "2026-05-14",
     readTime: "4 min",
+    thumbnail: "/resources/the_hidden_code_of_skipping_secure_code_review.png",
     icon: FileSearch,
     content: [
       "Code review catches typos, style issues, and logic bugs reliably. It catches access-control mistakes much less reliably, because the reviewer is usually checking 'does this do what the ticket asked' — not 'can this be reached by someone who shouldn't reach it.' Those are different questions, and most PR templates only ask the first one.",
@@ -59,6 +61,7 @@ export const ARTICLES: Article[] = [
     tags: ["SaaS", "Architecture"],
     date: "2026-04-22",
     readTime: "6 min",
+    thumbnail: "/resources/multi-tenant-data-isolation.png",
     icon: Boxes,
     content: [
       "Every multi-tenant SaaS product eventually has to answer the same question: what actually stops tenant A's query from returning tenant B's row? Row-level security in the database, a tenant_id filter enforced in application code, or fully separate schemas per tenant are all valid answers — but they carry very different failure modes if a developer forgets a WHERE clause at 2am.",
@@ -76,6 +79,7 @@ export const ARTICLES: Article[] = [
     tags: ["Red Teaming"],
     date: "2026-03-30",
     readTime: "5 min",
+    thumbnail: "/resources/what-a-red-team-engagement-looks-like.png",
     icon: Swords,
     content: [
       "A penetration test answers 'what vulnerabilities exist.' A red team engagement answers a different question: 'if someone genuinely wanted in, would we notice, and how far would they get.' The scope, pacing, and rules of engagement are built around that question, not around finding the maximum number of findings.",
@@ -93,6 +97,7 @@ export const ARTICLES: Article[] = [
     tags: ["Cloud Security", "IAM"],
     date: "2026-03-11",
     readTime: "4 min",
+    thumbnail: "/resources/cloud-iam-mistakes-we-keep-finding.png",
     icon: Cloud,
     content: [
       "Wildcard permissions granted 'temporarily' during a migration and never revisited are, by a wide margin, the most common finding in cloud environments we review. They're easy to justify in the moment and easy to forget about, because nothing breaks when they're left in place — until something does.",
@@ -110,6 +115,7 @@ export const ARTICLES: Article[] = [
     tags: ["Continuous Security", "DevSecOps"],
     date: "2026-02-18",
     readTime: "5 min",
+    thumbnail: "/resources/continuous-security-without-slowing-releases.png",
     icon: Radar,
     content: [
       "An annual pentest tells you about the risk your last big release introduced, roughly a year after you shipped it. For a team releasing weekly, that's not a security program — it's a single data point, stale before the report is even delivered.",

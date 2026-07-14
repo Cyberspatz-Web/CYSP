@@ -3,7 +3,11 @@ import { Seo } from "../components/Seo";
 import { Container } from "../components/ui/Container";
 import { Button } from "../components/ui/Button";
 import { ArticleThumb } from "../components/ui/ArticleThumb";
-import { ARTICLES, getArticleBySlug, formatArticleDate } from "../data/resources";
+import {
+  ARTICLES,
+  getArticleBySlug,
+  formatArticleDate,
+} from "../data/resources";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 export function ArticleDetail() {
@@ -50,7 +54,12 @@ export function ArticleDetail() {
 
         <Container>
           <div className="max-w-content">
-            <ArticleThumb icon={article.icon} index={currentIndex} />
+            {/* <ArticleThumb icon={article.icon} index={currentIndex} /> */}
+            <ArticleThumb
+              icon={article.icon}
+              thumbnail={article.thumbnail}
+              index={currentIndex}
+            />
           </div>
         </Container>
 
@@ -58,7 +67,10 @@ export function ArticleDetail() {
           <Container>
             <div className="max-w-[68ch] flex flex-col gap-6">
               {article.content.map((paragraph, i) => (
-                <p key={i} className="text-paper-dim leading-relaxed text-base md:text-lg">
+                <p
+                  key={i}
+                  className="text-paper-dim leading-relaxed text-base md:text-lg"
+                >
                   {paragraph}
                 </p>
               ))}
@@ -90,7 +102,10 @@ export function ArticleDetail() {
             </p>
             <span className="mt-5 inline-flex items-center gap-1.5 text-sm text-signal">
               Read article
-              <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
+              <ArrowRight
+                size={14}
+                className="transition-transform group-hover:translate-x-0.5"
+              />
             </span>
           </Link>
         </Container>
@@ -104,8 +119,8 @@ export function ArticleDetail() {
                 Facing something similar?
               </h2>
               <p className="mt-4 text-paper-dim max-w-[46ch] leading-relaxed">
-                Talk to our security team about your specific environment —
-                no generic advice, just what applies to you.
+                Talk to our security team about your specific environment — no
+                generic advice, just what applies to you.
               </p>
             </div>
             <Link to="/contact" className="shrink-0">
