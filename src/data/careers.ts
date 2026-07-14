@@ -48,8 +48,7 @@ export const BENEFITS: Benefit[] = [
   {
     icon: Users2,
     title: "Small teams, real ownership",
-    description:
-      "Engagements run lean. You'll own outcomes, not just tickets.",
+    description: "Engagements run lean. You'll own outcomes, not just tickets.",
   },
 ];
 
@@ -61,71 +60,43 @@ export interface OpenRole {
   remote: boolean;
 }
 
-export const OPEN_ROLES: OpenRole[] = [
-  {
-    title: "Senior Full-Stack Engineer",
-    department: "Engineering",
-    location: "Remote",
-    type: "Full-time",
-    remote: true,
-  },
-  {
-    title: "Secure Mobile Engineer (iOS/Android)",
-    department: "Engineering",
-    location: "Remote",
-    type: "Full-time",
-    remote: true,
-  },
-  {
-    title: "DevSecOps / Platform Engineer",
-    department: "Engineering",
-    location: "Berlin, DE",
-    type: "Full-time",
-    remote: true,
-  },
-  {
-    title: "Red Team Operator",
-    department: "Security",
-    location: "Remote",
-    type: "Full-time",
-    remote: true,
-  },
-  {
-    title: "Cloud Security Engineer",
-    department: "Security",
-    location: "Remote",
-    type: "Full-time",
-    remote: true,
-  },
-  {
-    title: "Application Security Consultant",
-    department: "Security",
-    location: "London, UK",
-    type: "Contract",
-    remote: false,
-  },
-  {
-    title: "Enterprise Account Executive",
-    department: "Business & Operations",
-    location: "New York, US",
-    type: "Full-time",
-    remote: false,
-  },
-  {
-    title: "Technical Program Manager",
-    department: "Business & Operations",
-    location: "Remote",
-    type: "Full-time",
-    remote: true,
-  },
-];
-
-export function getRolesByDepartment(department: OpenRole["department"]) {
-  return OPEN_ROLES.filter((r) => r.department === department);
+export interface TalentArea {
+  title: string;
+  roles: string[];
 }
 
-export const DEPARTMENTS: OpenRole["department"][] = [
-  "Engineering",
-  "Security",
-  "Business & Operations",
+export const TALENT_AREAS: TalentArea[] = [
+  {
+    title: "Engineering",
+    roles: [
+      "Full-Stack Engineers",
+      "Frontend Engineers",
+      "Backend Engineers",
+      "Mobile Engineers",
+      "DevOps Engineers",
+    ],
+  },
+  {
+    title: "Security",
+    roles: [
+      "Red Team Operators",
+      "Application Security Engineers",
+      "Cloud Security Engineers",
+      "Security Researchers",
+      "Penetration Testers",
+    ],
+  },
+  {
+    title: "Business",
+    roles: [
+      "Business Development",
+      "Marketing",
+      "Partnerships",
+      "Client Success",
+    ],
+  },
+  {
+    title: "Design",
+    roles: ["UI/UX Designers", "Brand Designers", "Motion Designers"],
+  },
 ];
