@@ -1,12 +1,5 @@
 import type { LucideIcon } from "lucide-react";
-import {
-  Target,
-  FileSearch,
-  Boxes,
-  Swords,
-  Cloud,
-  Radar,
-} from "lucide-react";
+import { Target, FileSearch, Boxes, Swords, Cloud, Radar } from "lucide-react";
 
 export type ArticleCategory = "Security" | "Engineering" | "Company";
 
@@ -19,6 +12,7 @@ export interface Article {
   date: string; // ISO
   readTime: string;
   icon: LucideIcon;
+  thumbnail?: string;
   content: string[]; // paragraphs
 }
 
