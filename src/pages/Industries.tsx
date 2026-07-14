@@ -47,50 +47,6 @@ export function Industries() {
                 transition={{ duration: 0.5, delay: (i % 3) * 0.05 }}
                 className="bg-ink px-8 py-12 md:px-12 md:py-14"
               >
-                {/* <div className="grid md:grid-cols-12 gap-8">
-                  <div className="md:col-span-4">
-                    <industry.icon size={22} className={accentClass(i)} strokeWidth={1.6} />
-                    <h2 className="mt-5 text-xl font-display font-bold text-paper max-w-[16ch]">
-                      {industry.name}
-                    </h2>
-                    <p className="mt-3 text-sm text-paper-dim leading-relaxed max-w-[38ch]">
-                      {industry.description}
-                    </p>
-                  </div>
-
-                  <div className="md:col-span-4">
-                    <p className="label-mono mb-4">Where the risk concentrates</p>
-                    <ul className="flex flex-col gap-2.5">
-                      {industry.keyRisks.map((risk) => (
-                        <li key={risk} className="text-sm text-paper-dim leading-relaxed flex gap-2.5">
-                          <span className="text-signal mt-1.5 h-1 w-1 rounded-full bg-signal shrink-0" />
-                          {risk}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="md:col-span-4">
-                    <p className="label-mono mb-4">Relevant services</p>
-                    <ul className="flex flex-col gap-2.5">
-                      {industry.relevantServiceSlugs.map((slug) => {
-                        const service = getServiceBySlug(slug);
-                        if (!service) return null;
-                        return (
-                          <li key={slug}>
-                            <Link
-                              to={`/services/${slug}`}
-                              className="text-sm text-paper hover:text-signal-bright transition-colors inline-flex items-center gap-1.5"
-                            >
-                              {service.title}
-                              <ArrowRight size={12} />
-                            </Link>
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  </div>
-                </div> */}
                 <div className="space-y-8">
                   {/* Header */}
                   <div>
