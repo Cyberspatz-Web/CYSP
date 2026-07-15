@@ -23,16 +23,89 @@ import {
 
 export type ServiceCategory = "Security Services" | "Engineering";
 
+// export interface Service {
+//   slug: string;
+//   category: ServiceCategory;
+//   title: string;
+//   tagline: string; // one line, used on overview cards
+//   summary: string; // 2-3 sentences, used on detail hero
+//   deliverables: string[]; // what the engagement produces
+//   icon: LucideIcon;
+// }
 export interface Service {
+  // ----------------------------
+  // Core Identity
+  // ----------------------------
   slug: string;
   category: ServiceCategory;
   title: string;
-  tagline: string; // one line, used on overview cards
-  summary: string; // 2-3 sentences, used on detail hero
-  deliverables: string[]; // what the engagement produces
+  tagline: string;
+  summary: string;
   icon: LucideIcon;
-}
 
+  // ----------------------------
+  // Existing UI
+  // ----------------------------
+  deliverables: string[];
+
+  // ----------------------------
+  // SEO
+  // ----------------------------
+  seo?: {
+    title: string;
+    description: string;
+    keywords: string[];
+    ogImage?: string;
+  };
+
+  // ----------------------------
+  // Landing Page Content
+  // ----------------------------
+  overview?: string;
+
+  businessValue?: string;
+
+  scope?: string[];
+
+  methodology?: {
+    title: string;
+    description: string;
+  }[];
+
+  frameworks?: string[];
+
+  industries?: string[];
+
+  compliance?: string[];
+
+  benefits?: string[];
+
+  tools?: string[];
+
+  // ----------------------------
+  // FAQ
+  // ----------------------------
+  faqs?: {
+    question: string;
+    answer: string;
+  }[];
+
+  // ----------------------------
+  // Internal Linking
+  // ----------------------------
+  relatedServices?: string[];
+
+  relatedResources?: string[];
+
+  // ----------------------------
+  // CTA
+  // ----------------------------
+  cta?: {
+    heading: string;
+    description: string;
+    button: string;
+  };
+}
 export const SERVICES: Service[] = [
   // ---- Security Services ----
   {
@@ -69,7 +142,8 @@ export const SERVICES: Service[] = [
     slug: "red-teaming",
     category: "Security Services",
     title: "Red Teaming",
-    tagline: "Adversarial simulation that tests people, process, and infrastructure together.",
+    tagline:
+      "Adversarial simulation that tests people, process, and infrastructure together.",
     summary:
       "We run a real attack campaign against your organization — not just your systems — to see what a motivated adversary would actually find, and whether your team would catch it.",
     deliverables: [
@@ -84,7 +158,8 @@ export const SERVICES: Service[] = [
     slug: "app-security",
     category: "Security Services",
     title: "App Security",
-    tagline: "Security testing built around how your application actually works.",
+    tagline:
+      "Security testing built around how your application actually works.",
     summary:
       "Deep-dive testing of your web and desktop applications' business logic, authentication, and data handling — beyond what automated scanners catch.",
     deliverables: [
@@ -129,7 +204,8 @@ export const SERVICES: Service[] = [
     slug: "infrastructure-pentesting",
     category: "Security Services",
     title: "Infrastructure Pentesting",
-    tagline: "Network and systems testing across on-prem and hybrid environments.",
+    tagline:
+      "Network and systems testing across on-prem and hybrid environments.",
     summary:
       "External and internal network penetration testing that maps how far an attacker could actually move once inside — not just what's exposed at the perimeter.",
     deliverables: [
@@ -144,7 +220,8 @@ export const SERVICES: Service[] = [
     slug: "cloud-security",
     category: "Security Services",
     title: "Cloud Security",
-    tagline: "Hardening for AWS, Azure, and GCP environments, not generic checklists.",
+    tagline:
+      "Hardening for AWS, Azure, and GCP environments, not generic checklists.",
     summary:
       "A configuration and architecture review of your cloud environment — IAM, network boundaries, storage, and workload identity — tailored to how your team actually operates it.",
     deliverables: [
@@ -221,7 +298,8 @@ export const SERVICES: Service[] = [
     slug: "secure-web-development",
     category: "Engineering",
     title: "Secure Web Development",
-    tagline: "Web platforms built with security requirements from the first sprint.",
+    tagline:
+      "Web platforms built with security requirements from the first sprint.",
     summary:
       "Full-stack web application development where authentication, authorization, and data handling are engineered in from the architecture phase — reviewed by the same team that breaks into applications for a living.",
     deliverables: [
@@ -236,7 +314,8 @@ export const SERVICES: Service[] = [
     slug: "secure-mobile-development",
     category: "Engineering",
     title: "Secure Mobile Development",
-    tagline: "iOS and Android apps engineered against real device-level threats.",
+    tagline:
+      "iOS and Android apps engineered against real device-level threats.",
     summary:
       "Native and cross-platform mobile development with secure local storage, certificate pinning, and hardened API communication built in from day one.",
     deliverables: [
@@ -251,7 +330,8 @@ export const SERVICES: Service[] = [
     slug: "saas-development",
     category: "Engineering",
     title: "SaaS Development",
-    tagline: "Multi-tenant platforms built to scale without scaling your exposure.",
+    tagline:
+      "Multi-tenant platforms built to scale without scaling your exposure.",
     summary:
       "End-to-end SaaS product development — tenant isolation, billing, and access control designed correctly the first time, so growth doesn't mean re-architecting security later.",
     deliverables: [
@@ -281,7 +361,8 @@ export const SERVICES: Service[] = [
     slug: "ai-automation",
     category: "Engineering",
     title: "AI & Automation",
-    tagline: "AI-driven workflows built with the same security discipline as everything else.",
+    tagline:
+      "AI-driven workflows built with the same security discipline as everything else.",
     summary:
       "Automation and AI-assisted tooling for internal workflows and customer-facing products — with data handling, model access, and output review treated as security surfaces, not afterthoughts.",
     deliverables: [
@@ -311,7 +392,8 @@ export const SERVICES: Service[] = [
     slug: "enterprise-software",
     category: "Engineering",
     title: "Custom Enterprise Software",
-    tagline: "Purpose-built software for the workflows off-the-shelf tools don't cover.",
+    tagline:
+      "Purpose-built software for the workflows off-the-shelf tools don't cover.",
     summary:
       "Bespoke enterprise software development — from internal tooling to customer-facing platforms — engineered, tested, and hardened by one accountable team end to end.",
     deliverables: [

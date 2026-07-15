@@ -2,16 +2,29 @@ import { Container } from "../ui/Container";
 import { AmbientGlow } from "../ui/AmbientGlow";
 
 const METRICS = [
-  { value: "120+", label: "Engagements delivered" },
-  { value: "340", label: "Critical findings closed pre-launch" },
-  { value: "99.95%", label: "Monitored uptime across managed environments" },
-  { value: "< 4hrs", label: "Median incident response time" },
+  { value: "19+", label: "Specialized Cybersecurity & Engineering Services" },
+  {
+    value: "Security-First",
+    label: "Secure Engineering Embedded Throughout Every Engagement",
+  },
+  {
+    value: "Offensive Security",
+    label:
+      "MonitReal-World Attack Simulation, Manual Testing & Evidence-Based Reporting",
+  },
+  {
+    value: "Global Delivery",
+    label: "Remote Engagements for Startups, SMEs & Enterprise Organizations",
+  },
 ];
 
 export function Metrics() {
   return (
     <section className="hairline py-16 bg-ink-raised/30 relative overflow-hidden">
-      <AmbientGlow tone="blue" className="w-[500px] h-[500px] -bottom-64 left-1/2 -translate-x-1/2 opacity-60" />
+      <AmbientGlow
+        tone="blue"
+        className="w-[500px] h-[500px] -bottom-64 left-1/2 -translate-x-1/2 opacity-60"
+      />
       <Container className="relative">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
           {METRICS.map((m) => (

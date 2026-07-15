@@ -25,28 +25,63 @@ const CATEGORIES: { name: ServiceCategory; description: string }[] = [
 export function ServicesOverview() {
   return (
     <>
-      <Seo
+      {/* <Seo
         title="Services"
         description="19 security and engineering service lines — VAPT, red teaming, cloud security, secure development, and more — all run through one review standard."
         path="/services"
+      /> */}
+      <Seo
+        title="Cybersecurity & Secure Software Development Services"
+        description="Explore Cyberspatz's cybersecurity and secure software development services including VAPT, Red Teaming, Cloud Security, Application Security, Secure Code Review, SaaS Development, ERP Solutions, AI Automation, and Digital Transformation."
+        keywords={[
+          "Cybersecurity Services",
+          "VAPT Services",
+          "Penetration Testing",
+          "Application Security Testing",
+          "Cloud Security Assessment",
+          "Red Team Exercises",
+          "API Security Testing",
+          "Infrastructure Pentesting",
+          "Secure Code Review",
+          "Threat Modeling",
+          "Security Consulting",
+          "Web Development",
+          "Mobile App Development",
+          "SaaS Development",
+          "ERP Development",
+          "Digital Transformation",
+        ]}
+        path="/services"
+        breadcrumbs={[
+          {
+            name: "Services",
+            path: "/services",
+          },
+        ]}
       />
       <section className="relative pt-40 pb-20 md:pt-48 md:pb-24 overflow-hidden">
-        <AmbientGlow tone="mixed" className="w-[520px] h-[520px] -top-40 left-1/2 -translate-x-1/2 opacity-70" />
+        <AmbientGlow
+          tone="mixed"
+          className="w-[520px] h-[520px] -top-40 left-1/2 -translate-x-1/2 opacity-70"
+        />
         <Container className="relative">
           <StatusBadge label="19 active service lines" />
           <h1 className="mt-8 text-display-lg font-display font-extrabold max-w-[18ch]">
             Every service runs through one standard.
           </h1>
           <p className="mt-6 text-lg text-paper-dim max-w-[54ch] leading-relaxed">
-            Whether we're breaking into your systems or building them, the
-            same team, the same review gates, and the same bar for evidence
-            apply. Explore by what you need next.
+            Whether we're breaking into your systems or building them, the same
+            team, the same review gates, and the same bar for evidence apply.
+            Explore by what you need next.
           </p>
         </Container>
       </section>
 
       {CATEGORIES.map((cat, catIndex) => (
-        <section key={cat.name} className="hairline py-section relative overflow-hidden">
+        <section
+          key={cat.name}
+          className="hairline py-section relative overflow-hidden"
+        >
           <AmbientGlow
             tone={catIndex % 2 === 0 ? "blue" : "amber"}
             className="w-[440px] h-[440px] -top-20 -right-40 opacity-60"
@@ -79,7 +114,11 @@ export function ServicesOverview() {
                     to={`/services/${service.slug}`}
                     className="group block h-full border-r border-b border-border p-8 hover:bg-ink-raised/50 transition-colors"
                   >
-                    <service.icon size={22} className={accentClass(i)} strokeWidth={1.6} />
+                    <service.icon
+                      size={22}
+                      className={accentClass(i)}
+                      strokeWidth={1.6}
+                    />
                     <h3 className="mt-6 text-base font-display font-semibold text-paper flex items-center gap-1.5">
                       {service.title}
                       <ArrowUpRight
@@ -106,14 +145,17 @@ export function ServicesOverview() {
                 Not sure which service you need?
               </h2>
               <p className="mt-4 text-paper-dim max-w-[46ch] leading-relaxed">
-                Tell us what you're trying to protect or build — we'll scope
-                the right engagement, not just sell you the biggest one.
+                Tell us what you're trying to protect or build — we'll scope the
+                right engagement, not just sell you the biggest one.
               </p>
             </div>
             <Link to="/contact" className="shrink-0">
               <Button size="lg" className="group">
                 Talk to Security Team
-                <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
+                <ArrowRight
+                  size={16}
+                  className="transition-transform group-hover:translate-x-0.5"
+                />
               </Button>
             </Link>
           </div>

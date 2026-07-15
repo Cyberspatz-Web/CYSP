@@ -43,7 +43,7 @@ export function Hero() {
           className="mt-8 text-display-xl font-display font-extrabold text-paper max-w-[16ch] mx-auto"
         >
           <Typewriter
-            text="Security engineered in, not bolted on."
+            text="Security-First Digital Engineering."
             startDelay={400}
           />
         </motion.h1>

@@ -133,7 +133,11 @@ const ORGANIZATION_SCHEMA = {
   // as sameAs. None are confirmed yet — populate once real profiles
   // exist; an empty/fabricated sameAs array would misrepresent the
   // entity rather than strengthen it.
-  sameAs: [] as string[],
+  sameAs: [
+    "https://www.linkedin.com/company/cyberspatz",
+    "https://github.com/Cyberspatz",
+    "https://www.instagram.com/official.cyberspatz",
+  ] as string[],
 };
 
 const WEBSITE_SCHEMA = {

@@ -20,10 +20,27 @@ export function ServiceDetail() {
 
   return (
     <>
-      <Seo
+      {/* <Seo
         title={service.title}
         description={service.summary}
         path={`/services/${service.slug}`}
+      /> */}
+      <Seo
+        title={service.seo?.title ?? service.title}
+        description={service.seo?.description ?? service.summary}
+        keywords={service.seo?.keywords}
+        path={`/services/${service.slug}`}
+        breadcrumbs={[
+          {
+            name: "Services",
+            path: "/services",
+          },
+          {
+            name: service.title,
+            path: `/services/${service.slug}`,
+          },
+        ]}
+        faq={service.faqs}
       />
       <section className="pt-40 pb-20 md:pt-48 md:pb-24">
         <Container>
@@ -47,7 +64,10 @@ export function ServiceDetail() {
             <Link to="/contact">
               <Button size="lg" className="group">
                 Scope This Engagement
-                <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
+                <ArrowRight
+                  size={16}
+                  className="transition-transform group-hover:translate-x-0.5"
+                />
               </Button>
             </Link>
             <Link to="/services">
@@ -71,7 +91,11 @@ export function ServiceDetail() {
             <ul className="md:col-span-2 grid sm:grid-cols-2 gap-x-8 gap-y-6">
               {service.deliverables.map((item) => (
                 <li key={item} className="flex items-start gap-3">
-                  <Check size={16} className="text-signal mt-0.5 shrink-0" strokeWidth={2} />
+                  <Check
+                    size={16}
+                    className="text-signal mt-0.5 shrink-0"
+                    strokeWidth={2}
+                  />
                   <span className="text-paper-dim leading-relaxed">{item}</span>
                 </li>
               ))}
@@ -104,7 +128,9 @@ export function ServiceDetail() {
                     className="text-steel opacity-0 -translate-y-0.5 translate-x-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"
                   />
                 </h3>
-                <p className="mt-3 text-sm text-paper-dim leading-relaxed">{r.tagline}</p>
+                <p className="mt-3 text-sm text-paper-dim leading-relaxed">
+                  {r.tagline}
+                </p>
               </Link>
             ))}
           </div>
@@ -126,7 +152,10 @@ export function ServiceDetail() {
             <Link to="/contact" className="shrink-0">
               <Button size="lg" className="group">
                 Request a Demo
-                <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
+                <ArrowRight
+                  size={16}
+                  className="transition-transform group-hover:translate-x-0.5"
+                />
               </Button>
             </Link>
           </div>
