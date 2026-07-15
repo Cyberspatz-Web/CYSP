@@ -1,5 +1,18 @@
 User-agent: *
 Allow: /
-Disallow: /portal
 
+Disallow: /portal/
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /login/
+Disallow: /register/
+Disallow: /forgot-password/
+Disallow: /reset-password/
+Disallow: /api/
+Disallow: /search?
+Disallow: /*?sort=
+Disallow: /*?filter=
+Disallow: /*?page=
+Disallow: /*?utm_
+Disallow: /*?ref=
 Sitemap: https://www.cyberspatz.com/sitemap.xml
