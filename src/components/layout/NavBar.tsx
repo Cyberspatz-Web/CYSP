@@ -12,6 +12,7 @@ const NAV_LINKS = [
   { label: "Industries", href: "/industries" },
   { label: "Careers", href: "/careers" },
   { label: "Resources", href: "/resources" },
+  { label: "Events", href: "/events" },
 ];
 
 export function NavBar() {
@@ -31,12 +32,21 @@ export function NavBar() {
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-colors duration-300",
-        scrolled ? "bg-ink/90 backdrop-blur-md border-b border-border" : "bg-transparent"
+        scrolled
+          ? "bg-ink/90 backdrop-blur-md border-b border-border"
+          : "bg-transparent",
       )}
     >
       <Container>
-        <nav className="flex items-center justify-between h-[72px]" aria-label="Primary">
-          <Link to="/" className="flex items-center" aria-label="Cyberspatz home">
+        <nav
+          className="flex items-center justify-between h-[72px]"
+          aria-label="Primary"
+        >
+          <Link
+            to="/"
+            className="flex items-center"
+            aria-label="Cyberspatz home"
+          >
             <BrandLogo className="h-8 md:h-9" />
           </Link>
 
@@ -47,7 +57,7 @@ export function NavBar() {
                   to={link.href}
                   className={cn(
                     "text-sm font-medium text-paper-dim hover:text-paper transition-colors",
-                    location.pathname === link.href && "text-paper"
+                    location.pathname === link.href && "text-paper",
                   )}
                 >
                   {link.label}

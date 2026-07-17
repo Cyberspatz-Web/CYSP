@@ -7,6 +7,7 @@ const COLUMNS = [
     title: "Company",
     links: [
       { label: "About", href: "/about" },
+      { label: "Events", href: "/events" },
       { label: "Careers", href: "/careers" },
       { label: "Solutions", href: "/solutions" },
       { label: "Resources", href: "/resources" },
@@ -25,10 +26,16 @@ const COLUMNS = [
   {
     title: "Engineering",
     links: [
-      { label: "Secure Web Development", href: "/services/secure-web-development" },
+      {
+        label: "Secure Web Development",
+        href: "/services/secure-web-development",
+      },
       { label: "SaaS Development", href: "/services/saas-development" },
       { label: "AI & Automation", href: "/services/ai-automation" },
-      { label: "Custom Enterprise Software", href: "/services/enterprise-software" },
+      {
+        label: "Custom Enterprise Software",
+        href: "/services/enterprise-software",
+      },
     ],
   },
   {
@@ -80,11 +87,15 @@ export function Footer() {
             © {new Date().getFullYear()} Cyberspatz. All rights reserved.
           </p>
           <div className="flex gap-6 text-xs text-steel font-mono">
-            <Link to="/privacy" className="hover:text-paper-dim">Privacy</Link>
+            <Link to="/privacy" className="hover:text-paper-dim">
+              Privacy
+            </Link>
             <Link to="/security-disclosure" className="hover:text-paper-dim">
               Responsible Disclosure
             </Link>
-            <Link to="/terms" className="hover:text-paper-dim">Terms</Link>
+            <Link to="/terms" className="hover:text-paper-dim">
+              Terms
+            </Link>
           </div>
         </div>
       </Container>

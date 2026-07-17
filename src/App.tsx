@@ -7,42 +7,66 @@ import { SiteLayout } from "./components/layout/SiteLayout";
 // the page they're actually viewing.
 import { Home } from "./pages/Home";
 
-const About = lazy(() => import("./pages/About").then((m) => ({ default: m.About })));
+const About = lazy(() =>
+  import("./pages/About").then((m) => ({ default: m.About })),
+);
 const ServicesOverview = lazy(() =>
-  import("./pages/ServicesOverview").then((m) => ({ default: m.ServicesOverview }))
+  import("./pages/ServicesOverview").then((m) => ({
+    default: m.ServicesOverview,
+  })),
 );
 const ServiceDetail = lazy(() =>
-  import("./pages/ServiceDetail").then((m) => ({ default: m.ServiceDetail }))
+  import("./pages/ServiceDetail").then((m) => ({ default: m.ServiceDetail })),
 );
-const Contact = lazy(() => import("./pages/Contact").then((m) => ({ default: m.Contact })));
-const Careers = lazy(() => import("./pages/Careers").then((m) => ({ default: m.Careers })));
+const Contact = lazy(() =>
+  import("./pages/Contact").then((m) => ({ default: m.Contact })),
+);
+const Careers = lazy(() =>
+  import("./pages/Careers").then((m) => ({ default: m.Careers })),
+);
 const ResourcesOverview = lazy(() =>
-  import("./pages/ResourcesOverview").then((m) => ({ default: m.ResourcesOverview }))
+  import("./pages/ResourcesOverview").then((m) => ({
+    default: m.ResourcesOverview,
+  })),
 );
-const ArticleDetail = lazy(() =>
-  import("./pages/ArticleDetail").then((m) => ({ default: m.ArticleDetail }))
-);
-const Industries = lazy(() =>
-  import("./pages/Industries").then((m) => ({ default: m.Industries }))
-);
-const Solutions = lazy(() =>
-  import("./pages/Solutions").then((m) => ({ default: m.Solutions }))
-);
-const FutureProductPage = lazy(() =>
-  import("./pages/FutureProductPage").then((m) => ({ default: m.FutureProductPage }))
-);
-const ClientPortal = lazy(() =>
-  import("./pages/ClientPortal").then((m) => ({ default: m.ClientPortal }))
-);
-const Privacy = lazy(() => import("./pages/Privacy").then((m) => ({ default: m.Privacy })));
-const Terms = lazy(() => import("./pages/Terms").then((m) => ({ default: m.Terms })));
-const ResponsibleDisclosure = lazy(() =>
-  import("./pages/ResponsibleDisclosure").then((m) => ({ default: m.ResponsibleDisclosure }))
-);
-const ComingSoon = lazy(() =>
-  import("./pages/ComingSoon").then((m) => ({ default: m.ComingSoon }))
+const Events = lazy(() =>
+  import("./pages/Events").then((m) => ({ default: m.Events })),
 );
 
+const EventDetail = lazy(() =>
+  import("./pages/EventDetail").then((m) => ({ default: m.EventDetail })),
+);
+const ArticleDetail = lazy(() =>
+  import("./pages/ArticleDetail").then((m) => ({ default: m.ArticleDetail })),
+);
+const Industries = lazy(() =>
+  import("./pages/Industries").then((m) => ({ default: m.Industries })),
+);
+const Solutions = lazy(() =>
+  import("./pages/Solutions").then((m) => ({ default: m.Solutions })),
+);
+const FutureProductPage = lazy(() =>
+  import("./pages/FutureProductPage").then((m) => ({
+    default: m.FutureProductPage,
+  })),
+);
+const ClientPortal = lazy(() =>
+  import("./pages/ClientPortal").then((m) => ({ default: m.ClientPortal })),
+);
+const Privacy = lazy(() =>
+  import("./pages/Privacy").then((m) => ({ default: m.Privacy })),
+);
+const Terms = lazy(() =>
+  import("./pages/Terms").then((m) => ({ default: m.Terms })),
+);
+const ResponsibleDisclosure = lazy(() =>
+  import("./pages/ResponsibleDisclosure").then((m) => ({
+    default: m.ResponsibleDisclosure,
+  })),
+);
+const ComingSoon = lazy(() =>
+  import("./pages/ComingSoon").then((m) => ({ default: m.ComingSoon })),
+);
 function ScrollToTop() {
   const { pathname } = useLocation();
   useEffect(() => {
@@ -65,6 +89,8 @@ function App() {
           <Route path="/careers" element={<Careers />} />
           <Route path="/resources" element={<ResourcesOverview />} />
           <Route path="/resources/:slug" element={<ArticleDetail />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/events/:slug" element={<EventDetail />} />
           <Route path="/industries" element={<Industries />} />
           <Route path="/solutions" element={<Solutions />} />
           <Route path="/community" element={<FutureProductPage />} />
@@ -73,7 +99,10 @@ function App() {
           <Route path="/portal" element={<ClientPortal />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
-          <Route path="/security-disclosure" element={<ResponsibleDisclosure />} />
+          <Route
+            path="/security-disclosure"
+            element={<ResponsibleDisclosure />}
+          />
           <Route path="*" element={<ComingSoon section="Not Found" />} />
         </Routes>
       </Suspense>
