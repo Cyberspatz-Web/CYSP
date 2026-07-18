@@ -19,7 +19,7 @@ build/
 .env.production.local
 
 # Keep the example template
-.env.example
+!.env.example
 
 # ==========================================
 # Logs
