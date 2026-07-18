@@ -9,28 +9,18 @@ export interface LeadPayload {
 
 const ENDPOINT = import.meta.env.VITE_LEADS_ENDPOINT as string | undefined;
 
-// Shared with the Apps Script's FORM_TOKEN Script Property (see
-// docs/google-apps-script/Code.gs). Not real security — it's visible in
-// this public bundle to anyone who looks — but it stops casual bots
-// that hit the endpoint URL directly without going through the site.
-// Leave VITE_FORM_TOKEN unset and the script simply won't enforce it
-// (only if you also leave FORM_TOKEN unset on the Apps Script side).
-const FORM_TOKEN = import.meta.env.VITE_FORM_TOKEN as string | undefined;
-
 /**
  * Sends a contact-form lead to the Google Apps Script backend (see
- * docs/google-apps-script/Code.gs), which appends it to a Google Sheet,
- * emails an internal notification, and sends the submitter an
- * acknowledgement email.
+ * docs/google-apps-script/Code.gs), which appends it to a Google Sheet
+ * and emails a notification to info@cyberspatz.com.
  *
  * Apps Script Web Apps don't support CORS preflight, so this uses
  * mode: "no-cors" with a text/plain body — the standard workaround for
  * POSTing to Apps Script from a browser. The response is opaque (can't
  * read status/body), so success is optimistic: if the request didn't
  * throw, we assume it landed. Server-side failures (e.g. a renamed
- * sheet tab, or the hardened script rejecting on rate-limit/validation)
- * won't surface here — check the Apps Script Executions log directly if
- * submissions aren't arriving.
+ * sheet tab) won't surface here — check the Sheet/Apps Script logs
+ * directly if submissions aren't arriving.
  */
 export async function submitLead(payload: LeadPayload): Promise<{ ok: boolean }> {
   if (!ENDPOINT) {
@@ -49,7 +39,7 @@ export async function submitLead(payload: LeadPayload): Promise<{ ok: boolean }>
       method: "POST",
       mode: "no-cors",
       headers: { "Content-Type": "text/plain" },
-      body: JSON.stringify({ ...payload, token: FORM_TOKEN }),
+      body: JSON.stringify(payload),
     });
     return { ok: true };
   } catch (err) {

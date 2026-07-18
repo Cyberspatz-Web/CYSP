@@ -6,16 +6,11 @@ export interface WaitlistPayload {
 
 const ENDPOINT = import.meta.env.VITE_LEADS_ENDPOINT as string | undefined;
 
-// See leads.ts for the full explanation — same shared token, same
-// "not real security, just raises the cost of casual abuse" caveat.
-const FORM_TOKEN = import.meta.env.VITE_FORM_TOKEN as string | undefined;
-
 /**
  * Same backend and same no-cors/text-plain pattern as submitLead in
  * leads.ts — see that file's comment for why. The Apps Script backend
  * (docs/google-apps-script/Code.gs) routes this to the "Waitlist" sheet
- * tab based on the `type: "waitlist"` field, and sends the registrant a
- * welcome email back.
+ * tab based on the `type: "waitlist"` field.
  */
 export async function submitWaitlist(payload: WaitlistPayload): Promise<{ ok: boolean }> {
   if (!ENDPOINT) {
@@ -34,7 +29,7 @@ export async function submitWaitlist(payload: WaitlistPayload): Promise<{ ok: bo
       method: "POST",
       mode: "no-cors",
       headers: { "Content-Type": "text/plain" },
-      body: JSON.stringify({ ...payload, type: "waitlist", token: FORM_TOKEN }),
+      body: JSON.stringify({ ...payload, type: "waitlist" }),
     });
     return { ok: true };
   } catch (err) {
