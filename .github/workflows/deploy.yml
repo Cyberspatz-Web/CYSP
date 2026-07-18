@@ -1,0 +1,51 @@
+name: Deploy to cPanel
+
+on:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: production
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Create Environment File
+        run: |
+          echo "VITE_LEADS_ENDPOINT=${{ secrets.VITE_LEADS_ENDPOINT }}" >> .env
+          echo "VITE_FORM_TOKEN=${{ secrets.VITE_FORM_TOKEN }}" >> .env
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Build Project
+        run: npm run build -- --mode production
+
+      - name: Verify Build Output
+        run: |
+          test -d dist
+          ls -la dist
+
+      - name: Deploy to cPanel
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: ${{ secrets.FTP_PORT }}
+          protocol: ftp
+          local-dir: ./dist/
+          server-dir: /public_html/
