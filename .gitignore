@@ -133,3 +133,5 @@ uploads/
 *.tar
 *.gz
 *.7z
+
+.github/
